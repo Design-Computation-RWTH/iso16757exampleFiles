@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DT_Library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="EN_ISO_23387.xsd" xmlns:xlink="http://www.w3.org/1999/xlink" >
+
+	<LibraryName  LanguageCode="en">Example_Burner</LibraryName>
+	<LibraryName  LanguageCode="de">Beispiel_Brenner</LibraryName>
+	
+    <!-- 
+    ############################################################################################################################################
+    #  Languages
+    #############################################################################################################################################
+    -->
+	
+	<Language Code="en" Name="English"/>
+	<Language Code="de-DE" Name="German"/>
+
+
+    	
+	<ConstructionObject xlink:title="Brenner" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-K8.0001">
+	</ConstructionObject>
+
+        <!-- 
+    ############################################################################################################################################
+    #  Construction object :Ölbrenner
+    #############################################################################################################################################
+    -->
+    	
+	<ConstructionObject xlink:title="Ölbrenner" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-K8.0005">
+	</ConstructionObject>
+
+            <!-- 
+    ############################################################################################################################################
+    #  Construction object :Gas-Brenner
+    #############################################################################################################################################
+    -->
+    	
+	<ConstructionObject xlink:title="Gasbrenner" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-K8.0004">
+	</ConstructionObject>
+
+	
+    <!-- 
+    ############################################################################################################################################
+    #  Sets of properties 
+    #############################################################################################################################################
+    -->
+
+    <SetOfProperties xlink:title="Auswahlmerkmale" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0000">
+     <Property xlink:title="Typ des Brenners" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.00001"></Property>	 
+     <Property xlink:title="Produktserie"  xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.00002"></Property>
+	 <Property xlink:title="Verbrennungstechnologie" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0003"></Property>
+     <Property xlink:title="Verbrennungsprinzip" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0004"></Property>
+     <Property xlink:title="Eindüsungsart bei Ölbrennern" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0005"></Property>
+     <Property xlink:title="Konstruktionstyp" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0006"></Property>
+     <Property xlink:title="Ausführung" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0007"></Property>
+    </SetOfProperties>
+
+    <SetOfProperties xlink:title="Produktelementdaten" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0001">
+     <Property xlink:title="Produktname" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.00008"></Property>	 
+     <Property xlink:title="Mischeinrichtung"  xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.00009"></Property>
+	 <Property xlink:title="Abgasrückführung" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0010"></Property>
+     <Property xlink:title="elektrischer Anschluss" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0011"></Property>
+     <Property xlink:title="Max. Schalleistungspegel" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0012"></Property>
+    </SetOfProperties>
+
+    <SetOfProperties xlink:title="Energieträger Gas" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0004">
+     <Property xlink:title="Energieträger Gas" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.00020"></Property>	 
+     <Property xlink:title="Bezeichnung des Energieträgers"  xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.00021"></Property>
+	 <Property xlink:title="Max. Anteil der Beimischung" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0022"></Property>
+     <Property xlink:title="Brennerleistung minimal" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0023"></Property>
+     <Property xlink:title="Brennerleistung maximal" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0024"></Property>
+    </SetOfProperties>
+
+    <SetOfProperties xlink:title="Energieträger Flüssig" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0005">
+     <Property xlink:title="Energieträger Flüssig" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.00034"></Property>	 
+     <Property xlink:title="Bezeichnung des Energieträgers"  xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.00021"></Property>
+	 <Property xlink:title="Max. Anteil der Beimischung" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0022"></Property>
+     <Property xlink:title="Brennerleistung minimal" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0023"></Property>
+     <Property xlink:title="Brennerleistung maximal" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0024"></Property>
+    </SetOfProperties>
+
+    <SetOfProperties xlink:title="Einbringmaße" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0013">
+     <Property xlink:title="Art der Maße" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.00067"></Property>	 
+     <Property xlink:title="Länge / Tiefe"  xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.00068"></Property>
+	 <Property xlink:title="Breite" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0069"></Property>
+     <Property xlink:title="Höhe" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0070"></Property>
+     <Property xlink:title="Masse" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0071"></Property>
+     <Property xlink:title="Beschreibung" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0072"></Property>
+    </SetOfProperties>
+
+	    <!-- 
+    ############################################################################################################################################
+    #  Funktionsparameter Merkmale
+    #############################################################################################################################################
+    -->
+    <SetOfProperties xlink:title="Funktionsparameter" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0014">
+     <Property xlink:title="Brennerleistung" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.00073"></Property>	 
+     <Property xlink:title="tatsächlicher Feuerraumdruck"  xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.00074"></Property>
+	 <Property xlink:title="Abgastemperatur an Entnahmestelle der Abgasrückführung" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0075"></Property>
+     <Property xlink:title="Min. Verbrennungslufttemperatur" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0076"></Property>
+     <Property xlink:title="Abgasdruck an Entnahmestelle der Abgasrückführung" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.0077"></Property>
+    </SetOfProperties>
+
+
+    	    <!-- 
+    ############################################################################################################################################
+    #  Funktionen
+    #############################################################################################################################################
+    -->
+    <SetOfProperties xlink:title="Funktionen" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.1000">
+     <Property xlink:title="unterer Feuerraumdruck" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.1001"></Property>	
+     <Property xlink:title="oberer Feuerraumdruck" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.1002"></Property>	  
+     <Property xlink:title="elektrische Leistungsaufnahme"  xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.1003"></Property>
+	 <Property xlink:title="Fließdruck (ohne Feuerraumdruck)" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-P8.1008"></Property>
+    </SetOfProperties>
+
+
+    
+    <!-- 
+    ############################################################################################################################################
+    #  Data template for Brenner : braucht es selbst eine URI?? Sets per URI verlinken, irgendwie doppelt gemoppelt , beides kreisschluss..
+    #############################################################################################################################################
+    -->
+
+	<DataTemplate xlink:title="Product Data Template für Brenner" xlink:href="http://example-dd-mep.online/PDT/PDT_08_00_Brenner" >
+		<IsDataTemplateFor xlink:title="Brenner" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-K8.0001"/>
+        <SetOfProperties xlink:title="Auswahlmerkmale" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0000"/>
+        <SetOfProperties xlink:title="Produktelementdaten" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0001"/>
+        <SetOfProperties xlink:title="Einbringmaße" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0013"/>
+        <SetOfProperties xlink:title="Funktionsparameter" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0014"/>
+        <SetOfProperties xlink:title="Funktionen" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.1000"/>
+	</DataTemplate>
+
+     <!-- 
+    ############################################################################################################################################
+    #  Data template for Ölbrenner
+    #############################################################################################################################################
+    -->
+
+    <DataTemplate xlink:title="Product Data Template für Ölbrenner" xlink:href="http://example-dd-mep.online/PDT/PDT_08_01_Ölbrenner" >
+		<IsDataTemplateFor xlink:title="Ölbrenner" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-K8.0005"/>
+        <SetOfProperties xlink:title="Auswahlmerkmale" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0000"/>
+        <SetOfProperties xlink:title="Produktelementdaten" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0001"/>
+        <SetOfProperties xlink:title="Einbringmaße" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0013"/>
+        <SetOfProperties xlink:title="Funktionsparameter" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0014"/>
+        <SetOfProperties xlink:title="Funktionen" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.1000"/>
+        <SetOfProperties xlink:title="Energieträger Flüssig" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0005"/>
+	</DataTemplate>
+
+         <!-- 
+    ############################################################################################################################################
+    #  Data template for Gasbrenner
+    #############################################################################################################################################
+    -->
+
+    <DataTemplate xlink:title="Product Data Template für Gasbrenner" xlink:href="http://example-dd-mep.online/PDT/PDT_08_02_Gasbrenner" >
+		<IsDataTemplateFor xlink:title="Gasbrenner" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-K8.0005"/>
+        <SetOfProperties xlink:title="Auswahlmerkmale" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0000"/>
+        <SetOfProperties xlink:title="Produktelementdaten" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0001"/>
+        <SetOfProperties xlink:title="Einbringmaße" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0013"/>
+        <SetOfProperties xlink:title="Funktionsparameter" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0014"/>
+        <SetOfProperties xlink:title="Funktionen" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.1000"/>
+        <SetOfProperties xlink:title="Energieträger Gas" xlink:href="http://example-dd-mep.online/dictionary/VDI_3805-C8.0004"/>
+	</DataTemplate>
+	
+</DT_Library>

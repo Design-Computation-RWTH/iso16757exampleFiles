@@ -1,0 +1,496 @@
+ISO-10303-21;
+HEADER;
+FILE_DESCRIPTION (('Burner example for IFC Project Catalogue example according to W. Wilkes'), '2;1');
+FILE_NAME ('catalog-example', '2020-06-25T12:00:00', ('Noemi Kremer'), ('Semaino'), ' ', ' ', ' ');
+FILE_SCHEMA (('IFC4'));
+ENDSEC;
+DATA;
+
+#1= IFCPROJECT('273Rd3Kgr3MAUL0vM0ouX4',$,'myProject',$,$,'myProjectLongName',$,$,$);
+#2= IFCPROJECTLIBRARY('3tSvXKUsvDlxvEzXylyckz',$,'myProjectLibrary',$,$,$,$,$,$);
+#3= IFCRELDECLARES('3Z4Xv_u3HD3Rzf6opAWCeY',$,$,$,#1,(#2));
+#4= IFCRELDECLARES('0000000000000000000000',$,$,$,#2,(#1000));
+/* Units and unit assignments */
+
+
+#7=IFCSIUNIT(*,.LENGTHUNIT.,$,.METRE.);
+#8=IFCSIUNIT(*,.MASSUNIT.,.KILO.,.GRAM.);
+#9=IFCSIUNIT(*,.TIMEUNIT.,$,.SECOND.);
+#10=IFCSIUNIT(*,.ELECTRICCURRENTUNIT.,$,.AMPERE.);
+#11=IFCSIUNIT(*,.THERMODYNAMICTEMPERATUREUNIT.,$,.KELVIN.);
+#12=IFCSIUNIT(*,.AMOUNTOFSUBSTANCEUNIT.,$,.MOLE.);
+#13=IFCSIUNIT(*,.LUMINOUSINTENSITYUNIT.,$,.CANDELA.);
+
+#14=IFCDIMENSIONALEXPONENTS(0,0,0,0,0,0,0);
+#15=IFCMEASUREWITHUNIT(IFCREAL(1.),#16);
+#16=IFCDERIVEDUNIT((),.USERDEFINED., $);
+#17=IFCCONVERSIONBASEDUNITWITHOFFSET(#14,.USERDEFINED.,'without unit',#15,0);
+
+#18=IFCDIMENSIONALEXPONENTS(-2,1,-2,0,0,0,0);
+#19=IFCMEASUREWITHUNIT(IFCREAL(1.),#20);
+#20=IFCDERIVEDUNIT((#21, #22, #23), .USERDEFINED., $);
+#21=IFCDERIVEDUNITELEMENT(#7, -2);
+#22=IFCDERIVEDUNITELEMENT(#8, 1);
+#23=IFCDERIVEDUNITELEMENT(#9, -2);
+#24=IFCCONVERSIONBASEDUNITWITHOFFSET(#18,.USERDEFINED.,'Pascal per meter',#19,0);
+
+#29=IFCDIMENSIONALEXPONENTS(1,0,0,0,0,0,0);
+#30=IFCMEASUREWITHUNIT(IFCREAL(1000.),#31);
+#31=IFCDERIVEDUNIT((#32),.USERDEFINED.,'');
+#32=IFCDERIVEDUNITELEMENT(#7,1);
+#33=IFCCONVERSIONBASEDUNITWITHOFFSET(#29,.USERDEFINED.,'millimeter',#30,0.);
+
+#38=IFCDIMENSIONALEXPONENTS(3,0,-1,0,0,0,0);
+#39=IFCMEASUREWITHUNIT(IFCREAL(1.),#40);
+#40=IFCDERIVEDUNIT((#41, #42), .USERDEFINED., $);
+#41=IFCDERIVEDUNITELEMENT(#7, 3);
+#42=IFCDERIVEDUNITELEMENT(#9, -1);
+#44=IFCCONVERSIONBASEDUNITWITHOFFSET(#38,.USERDEFINED.,'qubic meters per second',#39,0);
+
+
+#45=IFCDIMENSIONALEXPONENTS(0,0,0,0,0,0,0);
+#46=IFCMEASUREWITHUNIT(IFCTEXT,#47);
+#47=IFCDERIVEDUNIT((),.USERDEFINED., $);
+#48=IFCCONVERSIONBASEDUNITWITHOFFSET(#45,.USERDEFINED.,'without unit',#46,0);
+
+
+#53=IFCORGANIZATION('http://example-dd-mep.online/dictionary/VDI_3805-K8.0001','Construction Industry Dictionaries','A (fictitious) organization that maintains and publishes data dictionaries for the Construction Industry',$,$);
+
+/*  ifcLibraryInformation (Name, Version, Publisher, VersionDate, Location, Description) */
+#400= IFCLIBRARYINFORMATION('Example Data Dictionary URL',$,#53,$,'http://example-dd-mep.online/dictionary',$);
+
+/* ifcLibraryReference (Location, Identification, Name, Description, Language, ReferencedLibrary) */
+/* Brenner, woher kommt bsDD? */
+#500= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-K8.0001', '57f947ec-bd74-4c39-9647-d7e71e341d7e', 'Brenner', 'bSDD.Brenner',$,#400);
+
+
+
+/*  PropertySet staticPropertySet_Burner with its properties (Auswahlmerkmale)*/
+
+#510= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-C8.0000', 'fbcf6134-2837-4521-9bc8-92b4e8d549bd', 'Auswahlmerkmale', $, $, #400);
+#520= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.00001', '4316426c-4096-4a9f-af6d-00cd0ef47cbe', 'Typ des Brenners', $, $, #400);
+#530= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.00002', '4f5da808-5eac-4f49-b57c-a87a444e429f', 'Produktserie', $, $, #400);
+#540= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0003', '6edb4b53-ef7c-40eb-b09a-a230eb7f0124', 'Verbrennungstechnologie', $, $, #400);
+#550= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0004', 'e3b0e8d8-cde7-4f0f-8b9b-dbf0f2e1785d', 'Verbrennungsprinzip', $, $, #400);
+#560= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0005', '6009c9b2-ca51-4ae4-9a8f-d61fc18b7e57', 'Eindüsungsart bei Ölbrennern', $, $, #400);
+#570= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0005', 'f188534c-01f2-4bd3-b560-bb604ee8d644', 'Konstruktionstyp', $, $, #400);
+#580= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0006', '1afce859-a37f-4b75-95b1-38d6a6857cc9', 'Ausführung', $, $, #400);
+
+#521= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.00001-1', '4316426c-4096-4a9f-af6d-00cd0ef47cba', 'Ölbrenner', $, $, #400);
+#522= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.00001-2', '4316426c-4096-4a9f-af6d-00cd0ef47cba', 'Gasbrenner', $, $, #400);
+#523= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.00001-3', '4316426c-4096-4a9f-af6d-00cd0ef47cba', 'Kombibrenner', $, $, #400);
+
+
+
+/* PropertySet Produktelementdaten with its properties */
+#590= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-C8.0001', '8facb056-dec9-488b-bbd5-dca617ac7f42', 'Produktelementdaten', $, $, #400);
+#600= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.00008', '501ad91d-2427-4e59-ba62-a8474142822a', 'Produktname', $, $, #400);
+#610= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.00009', '0fc292a2-e31f-4ff8-9806-e8dd7ab41bfd', 'Mischeinrichtung', $, $, #400);
+#620= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0010', '28347ebe-266a-498a-9cb6-e8789408caa3', 'Abgasrückführung', $, $, #400);
+#630= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0011', '3cc115e3-01b9-459e-bd7e-23cf18fc6bfe', 'elektrischer Anschluss', $, $, #400);
+#640= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0012', '6c3c2784-4691-403f-b0ed-a8b56cdc0ed2', 'Max. Schalleistungspegel', $, $, #400);
+
+/*  PropertySet Energieträger Gas with its properties -- für beispiel: gas und öl eins , alte bezeichnung (2012) übernehmen sonst zu verwirrend:  */
+
+/*  PropertySet Energieträger Gas with its properties */
+#650= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-C8.0004', 'a1fbbf95-38b9-4dfa-805f-1c05e9a2ecfb', 'Brennstoff', $, $, #400);
+#660= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.00020', '4804f5f4-c38f-43cd-817b-190f3fbdbd3e', 'Brennstoffkennziffer', $, $, #400);
+#670= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.00021', 'd1803363-549d-4edd-a419-ab19ddf266bf', 'Bezeichnung des Brennstoffs', $, $, #400);
+#680= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0022', 'c1125e15-bb32-4c1e-9d6a-f825e8241eb1', 'Unterer Heizwert', $, $, #400);
+#690= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0023', '0a673cf5-c917-46a2-86eb-efd23e57b93d', 'Relative Dichte', $, $, #400);
+#700= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0024', 'aad60c4d-60c4-458b-80cd-26263aade273', 'Viskosität', $, $, #400);
+
+
+/*  PropertySet Einbringmaße with its properties */
+#770= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-C8.0013', '0271e710-2bc1-4678-800d-38e4f2f38871', 'Einbringmaße', $, $, #400);
+#780= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.00067', '7e761fb3-8a0c-4477-9d59-d86b6d769e98', 'Art der Maße', $, $, #400);
+#790= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.00068', 'bedbb791-98e5-4495-abcc-70d5c384b748', 'Länge / Tiefe', $, $, #400);
+#800= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0069', '37d3aa0a-afd5-4ce6-a9c7-e14383423fd7', 'Breite', $, $, #400);
+#810= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0070', 'ef9f7042-0b8e-4454-a9ea-a997082a9aa0', 'Höhe', $, $, #400);
+#820= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0071', '710400ef-f9b4-48c9-a506-3b5134036ba1', 'Masse', $, $, #400);
+#830= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0072', '59d78be8-dd11-4531-a21a-125e9241bbd3', 'Beschreibung', $, $, #400);
+
+
+
+/*  PropertySet Funktionsparameter Merkmale with its properties */
+#840= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-C8.0014', '4ccad99f-c9b2-4898-bfab-6742077d83bd', 'Funktionsparameter', $, $, #400);
+#850= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.00073', 'db8afd32-01e5-4fb2-a849-4eb0812e1ee9', 'Brennerleistung', $, $, #400);
+#860= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.00074', '23f87c2b-1199-4e1a-b8c7-f4f9b4ee1011', 'tatsächlicher Feuerraumdruck', $, $, #400);
+#870= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0075', '9d4f28b7-3274-4165-8d40-b69a12f126cc', 'Abgastemperatur an Entnahmestelle der Abgasrückführung', $, $, #400);
+#880= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0076', '103cb998-ea79-466b-8abe-04d163ebd82d', 'Min. Verbrennungslufttemperatur', $, $, #400);
+#890= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.0077', '9fe5aae0-a61e-4f8b-8faf-492c8a4b181f', 'Abgasdruck an Entnahmestelle der Abgasrückführung', $, $, #400);
+
+
+
+/*  PropertySet Funktionen with its properties */
+#900= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-C8.1000', '4199bb63-f9e1-4715-9b2d-71f46a05ba15', 'Funktionen', $, $, #400);
+#910= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.1001', 'a8cf3d52-b78e-4199-9b53-47e90e2560a2', 'unterer Feuerraumdruck', $, $, #400);
+#920= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.1002', '4a88ed19-67eb-4223-9d2a-94acd8cc466d', 'oberer Feuerraumdruck', $, $, #400);
+#930= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.1003', 'ef03e75f-9b69-439f-8627-4552a94bf572', 'elektrische Leistungsaufnahme', $, $, #400);
+#940= IFCLIBRARYREFERENCE('http://example-dd-mep.online/dictionary/VDI_3805-P8.1008', 'cffcda37-1622-41f1-982c-ef9b03d4dad9', 'Fließdruck (ohne Feuerraumdruck)', $, $, #400);
+
+
+
+
+/*  IfcBuildingElementProxyType (GlobalID, IFCOwnerHistory, Name, Description, ApplicableOccurrence, HasPropertySets, RepresentationMaps, Tag, ElementType, PredefinedType) */
+#1000= IFCBUILDINGELEMENTPROXYTYPE ('1BgPvb5CT4je9dj4j5PKD6', $, 'Brenner', $,'IfcBuildingElementProxy', (#1100, #1300, #1400), $,$,$, .NOTDEFINED.);
+#1001= IFCRELDECLARES('2r1q28apn2jP35K7qhO2PD',$,$,$,#2,(#1000));
+
+/*  IfcRelAssociatesLibrary (GlobalID, IFCOwnerHistory, Name, Description, RelatedObjects, RelatingLibrary) */
+#1002=IFCRELASSOCIATESLIBRARY('1um7PHMfT7pRlHkBsjsboV',$,$,$,(#1000),#500);
+
+
+
+
+/* Sets of Properties */
+
+/*  IfcPropertySet (GlobalID, IFCOwnerHistory, Name, Description, HasProperties) */
+
+#1100= IFCPROPERTYSET ('3J1BXrlUjArxJemq$G3PJ1', $, 'Auswahlmerkmale', $, (#1110, #1120, #1130, #1140, #1150, #1160, #1170));
+
+#1101=IFCRELASSOCIATESLIBRARY('3SkOv5qm1FlACIR77UKNWN',$,$,$,(#1100),#510);
+
+/*  IFCProperty (Name, description) */
+/*  IFCPropertySingleValue (Name, description, NominalValue, Unit) */
+#1110=IFCPROPERTYSINGLEVALUE ('TypDesBrenners',$,$,#48);
+
+/* ifcExternalReferenceRelationship (Name, Description, RelatingReference, RelatedResourceObjects) */
+#1111=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$, #520,(#1110));
+
+#1120=IFCPROPERTYSINGLEVALUE('Produktserie',$,$,#48);
+#1121=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$, #530,(#1120));
+
+#1130=IFCPROPERTYSINGLEVALUE('Verbrennungstechnologie',$,$,#48);
+#1131=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$, #540,(#1130));
+
+#1140=IFCPROPERTYSINGLEVALUE('Verbrennungsprinzip',$,$,#48);
+#1141=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$, #550,(#1140));
+
+#1150=IFCPROPERTYSINGLEVALUE('EindüsungsartBeiÖlbrennern',$,$,#48);
+#1151=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$, #560,(#1150));
+
+#1160=IFCPROPERTYSINGLEVALUE('Konstruktionstyp',$,$,#48);
+#1161=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#570, (#1160));
+
+#1170=IFCPROPERTYSINGLEVALUE('Ausführung',$,$,#48);
+#1171=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#580, (#1170));
+
+
+
+#1180= IFCPROPERTYSET ('3J1BXrlUjArxJemq$G3PQ1', $, 'Produktelementdaten', $, (#1190, #1200, #1210, #1220, #1230));
+#1181=IFCRELASSOCIATESLIBRARY('2zZzq5ikL48e92zw8XN3g1',$,$,$,(#1180),#590);
+
+#1190=IFCPROPERTYSINGLEVALUE('Produktname',$,$,#48);
+#1191=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#600, (#1190));
+
+#1200=IFCPROPERTYSINGLEVALUE('Mischeinrichtung',$,$,#48);
+#1201=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#610, (#1200));
+
+#1210=IFCPROPERTYSINGLEVALUE('Abgasrückführung',$,$,#48);
+#1211=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#620, (#1210));
+
+#1220=IFCPROPERTYSINGLEVALUE('elektrischerAnschluss',$,IFCREAL(2000.),#48);
+#1221=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#630, (#1220));
+
+/*TODO UNIT */
+#1230=IFCPROPERTYSINGLEVALUE('MaxSchalleistungspegel',$,$,#33);
+#1231=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#640, (#1230));
+
+
+
+#1240= IFCPROPERTYSET ('3wX4PInPD4rxMiMIPoExJe', $, 'Brennstoff', $, (#1250, #1260, #1270, #1280, #1290));
+#1241=IFCRELASSOCIATESLIBRARY('2DuRK5B8T04hfxRARVrdLI',$,$,$,(#1240),#650);
+
+#1250=IFCPROPERTYSINGLEVALUE('Brennstoffkennziffer',$,$,#17);
+#1251=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#660, (#1250));
+
+#1260=IFCPROPERTYSINGLEVALUE('Bezeichnung des Brennstoffs',$,$,#48);
+#1261=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#670, (#1260));
+
+/*TODO UNIT */
+#1270=IFCPROPERTYSINGLEVALUE('Heizwert',$,$,#17);
+#1271=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#680, (#1270));
+
+/*TODO UNIT */
+#1280=IFCPROPERTYSINGLEVALUE('Relative Dichte',$,$,#17);
+#1281=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#690, (#1280));
+
+/*TODO UNIT */
+#1290=IFCPROPERTYSINGLEVALUE('Viskosität',$,$,#17);
+#1291=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#700, (#1290));
+
+
+
+
+
+#1360= IFCPROPERTYSET ('18YJVFCsDEew4jNY6mUDtH', $, 'Einbringmaße', $, (#1370, #1380, #1390, #1400, #1410, #1420));
+#1361=IFCRELASSOCIATESLIBRARY('2$HuHWKCT3fQ2Bgm15JspU',$,$,$,(#1300),#770);
+
+#1370=IFCPROPERTYSINGLEVALUE('ArtDerMaße',$,$,#48);
+#1371=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#780, (#1370));
+
+#1380=IFCPROPERTYSINGLEVALUE('Länge/Tiefe',$,$,#33);
+#1381=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#790, (#1380));
+
+#1390=IFCPROPERTYSINGLEVALUE('Breite',$,$,#33);
+#1391=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#800, (#1390));
+
+#1400=IFCPROPERTYSINGLEVALUE('Höhe',$,$,#33);
+#1401=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#810, (#1400));
+
+/*TODO UNIT */
+#1410=IFCPROPERTYSINGLEVALUE('Masse',$,$,#33);
+#1411=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#820, (#1410));
+
+/*TODO UNIT */
+#1420=IFCPROPERTYSINGLEVALUE('Beschreibung',$,$,#33);
+#1421=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#830, (#1420));
+
+
+
+/* Funktionsparameter Merkmale */
+#1430= IFCPROPERTYSET ('2m_q$Sb0rBUh3b3lIQf7Du', $, 'Funktionsparameter', $, (#1440, #1450, #1460, #1470, #1480));
+#1431=IFCRELASSOCIATESLIBRARY('30qF$uj4L2CA1xFukq7TNs',$,$,$,(#1430),#840);
+
+/*TODO UNIT */
+#1440=IFCPROPERTYSINGLEVALUE('Brennerleistung',$,$,#33);
+#1441=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#850, (#1440));
+
+/*TODO UNIT */
+#1450=IFCPROPERTYSINGLEVALUE('tatsächlicherFeuerraumdruck',$,$,#33);
+#1451=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#860, (#1450));
+
+/*TODO UNIT */
+#1460=IFCPROPERTYSINGLEVALUE('AbgastemperaturAnEntnahmestelleDerAbgasrückführung',$,$,#33);
+#1461=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#870, (#1460));
+
+/*TODO UNIT */
+#1470=IFCPROPERTYSINGLEVALUE('MinVerbrennungslufttemperatur',$,$,#33);
+#1471=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#880, (#1470));
+
+/*TODO UNIT */
+#1480=IFCPROPERTYSINGLEVALUE('Abgasdruck an Entnahmestelle der Abgasrückführung',$,$,#33);
+#1481=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#890, (#1480));
+
+
+
+/* Funktionen */
+#1490= IFCPROPERTYSET ('0iYC1gLQnBDhpAQKS_qi2I', $, 'Funktionen', $, (#1500, #1510, #1520, #1530));
+#1491=IFCRELASSOCIATESLIBRARY('0KVXmxjbf47evGiiLvJFD8',$,$,$,(#1300),#900);
+
+/*TODO UNIT */
+#1500=IFCPROPERTYSINGLEVALUE('untererFeuerraumdruck',$,$,#33);
+#1501=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#910, (#1500));
+
+/*TODO UNIT */
+#1510=IFCPROPERTYSINGLEVALUE('obererFeuerraumdruck',$,$,#33);
+#1511=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#920, (#1510));
+
+/*TODO UNIT */
+#1520=IFCPROPERTYSINGLEVALUE('elektrischeLeistungsaufnahme',$,$,#33);
+#1521=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#930, (#1520));
+
+/*TODO UNIT */
+#1530=IFCPROPERTYSINGLEVALUE('Fließdruck (ohne Feuerraumdruck)',$,$,#33);
+#1531=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#940, (#1530));
+
+
+
+
+#1540=IFCPROPERTYSINGLEVALUE('Error description',$,IFCTEXT(*),$);
+#1541=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#910,(#1510));
+#1550=IFCPROPERTYSINGLEVALUE('Error code',$,IFCINTEGER(*),$);
+#1551=IFCEXTERNALREFERENCERELATIONSHIP('myExternalReferenceRelationship',$,#920,(#1520));
+
+
+
+
+
+/*TODO Values Constraints HERSTELLER BEZOGENE INFORMATIONEN */
+/*
+********************************
+  Values for properties described in single column tables  
+*********************************
+*/
+
+
+
+
+
+/*
+********************************
+  Values for properties (width) --> könnten hier schon die predefined values mit rein? -----------------------------------------------------------------------------------------------
+*********************************
+*/
+
+/*  ifcObjective ((Name, Description, ConstraintGrade, ConstraintSource, CreatingActor, CreationTime, UserDefinedGrade, BenchmarkValues, LogicAggregator, ObjectiveQualifier, UserDefinedQualifier) */
+#2000= IFCOBJECTIVE ('setOfTypDesBrennersValues', $,.USERDEFINED.,$,$,$,$, (#2001),$, .USERDEFINED., 'defines the set of values of the property Typ des Brenners');
+
+/*  ifcMetric (Name, Description, ConstraintGrade, ConstraintSource, CreatingActor, CreationTime,  UserDefinedGrade, Benchmark, ValueSource, DataValue, ReferencePath) */
+#2001= IFCMETRIC ('TypValues',$,.NOTDEFINED.,$,$,$,$,.EQUALTO.,'TypDesBrenners',#2002,$);
+
+#2002= IFCTABLE('Typ des Brenners',(#10000,#10001,#10002),(#2003));
+
+
+#2003= IFCTABLECOLUMN('Typ des Brenners','Typ','Typbezeichnung des Brenners',#48,#2260);
+
+/*  ifcRelAssocatesConstraint (GlobalID, ifcOwnerHistory, Name, description, relatedObjects, Intent, RelatingConstraint) */
+#2004= IFCRELASSOCIATESCONSTRAINT ('16tfohlWPCke60WhxDu7yt', $,$,$, (#1000), 'Values of Property Typ des Brenners', #2000);
+
+
+
+/*
+********************************
+  Value combinations for properties described in a multi-column table :
+
+  allowed values for properties typ des brenners and serie )
+*********************************
+*/
+
+#2170= IFCOBJECTIVE ('allowed combinations of Typ des Brenners and Serie', $,.USERDEFINED.,$,$,$,$, (#2171),$, .USERDEFINED., 'defines the allowed value combinations for Typ des Brenners and Serie');
+/*  ifcMetric (Name, Description, ConstraintGrade, ConstraintSource, CreatingActor, CreationTime,  UserDefinedGrade, Benchmark, ValueSource, DataValue, ReferencePath) */
+#2171= IFCMETRIC ('linkToCombinationTable',$,.NOTDEFINED.,$,$,$,$,.EQUALTO.,$,#2172,$);
+#2172= IFCTABLE('CombinationTable',(#25030,#25031,#25032),(#2173,#2174));
+#2173= IFCTABLECOLUMN('Typ des Brenners','Typ des Brenners','Nominal Typ des Brenners',$,#2290);
+#2174= IFCTABLECOLUMN('Serie','Serie','Nominal Serie' ,$,#2320);
+#2175= IFCRELASSOCIATESCONSTRAINT ('39pdaAHcz17fqXm2DkcYS4', $,$,$, (#1000), 'Values of Properties Typ des Brenners and Serie', #2170);
+
+
+/*
+********************************
+  Value combinations for properties described in a multi-column table :
+
+  allowed values for produktelement daten ---> zu verwirrend. muss wieder alte tabelle/pset rekonstruieren..aaaaber nicht heute
+*********************************
+*/
+
+
+#2190= IFCOBJECTIVE ('allowed combinations of Serie, Baugröße, Brennerleistung min, Brennerleistung max,  Mischeinreichtung', $,.USERDEFINED.,$,$,$,$, (#2191),$, .USERDEFINED., 'defines the allowed value combinations for the Brennstoff Propertyset');
+/*  ifcMetric (Name, Description, ConstraintGrade, ConstraintSource, CreatingActor, CreationTime,  UserDefinedGrade, Benchmark, ValueSource, DataValue, ReferencePath) */
+#2191= IFCMETRIC ('linkToCombinationTable',$,.NOTDEFINED.,$,$,$,$,.EQUALTO.,$,#2192,$);
+#2192= IFCTABLE('CombinationTable',(#25050,#25051,#25052,#25053,#25054),(#2193,#2194,#2195,#2196,#2197,#2198,#2199));
+#2193= IFCTABLECOLUMN('Serie','Serie','Nominal Serie of the silencer',$,#2320);
+#2194= IFCTABLECOLUMN('Baugröße','Baugröße','Nominal Baugröße',$,#2330);
+#2195= IFCTABLECOLUMN('Brennerleistung','Bezeichnung Brennstoff','Nominal Bezeichnung Brennstoff',$,#2335);
+#2196= IFCTABLECOLUMN('Unterer Heizwert','Unterer Heizwert','Nominal Unterer Heizwert',$,#2340);
+#2197= IFCTABLECOLUMN('Viskosität','Viskosität','Nominal Viskosität',$,#2350);
+#2198= IFCTABLECOLUMN('Relative Dichte','Relative Dichte','Nominal Relative Dichte',$,#2355);
+#2199= IFCTABLECOLUMN('Maximaler Eingangsdruck','Maximaler Eingangsdruck','Nominal Maximaler Eingangsdruck',$,#2360);
+#2200= IFCRELASSOCIATESCONSTRAINT ('39pdaAHcz17fqXm2DkcYS5', $,$,$, (#1000), 'Values of Properties Serie, Brennstoffkennziffer, Bezeichnung Brennstoff, Unterer Heizwert, Viskosität, Relative Dichte, Maximaler Eingangdruck', #2180);
+
+
+
+/*
+********************************
+  Value combinations for properties described in a multi-column table :
+
+  allowed values for properties serie, brennstoff, heizwert, etc.) 
+*********************************
+*/
+
+
+#2180= IFCOBJECTIVE ('allowed combinations of Serie, Brennstoffkennziffer, Bezeichnung Brennstoff, Unterer Heizwert, Viskosität, Relative Dichte, Max. Eingangsdruck', $,.USERDEFINED.,$,$,$,$, (#2181),$, .USERDEFINED., 'defines the allowed value combinations for the Brennstoff Propertyset');
+/*  ifcMetric (Name, Description, ConstraintGrade, ConstraintSource, CreatingActor, CreationTime,  UserDefinedGrade, Benchmark, ValueSource, DataValue, ReferencePath) */
+#2181= IFCMETRIC ('linkToCombinationTable',$,.NOTDEFINED.,$,$,$,$,.EQUALTO.,$,#2182,$);
+#2182= IFCTABLE('CombinationTable',(#25050,#25051,#25052,#25053,#25054),(#2183,#2184,#2185,#2186,#2187,#2188,#2189));
+#2183= IFCTABLECOLUMN('Serie','Serie','Nominal Serie of the silencer',$,#2320);
+#2184= IFCTABLECOLUMN('Brennstoffkennziffer','Brennstoffkennziffer','Nominal Brennstoffkennziffer',$,#2330);
+#2185= IFCTABLECOLUMN('Bezeichnung Brennstoff','Bezeichnung Brennstoff','Nominal Bezeichnung Brennstoff',$,#2335);
+#2186= IFCTABLECOLUMN('Unterer Heizwert','Unterer Heizwert','Nominal Unterer Heizwert',$,#2340);
+#2187= IFCTABLECOLUMN('Viskosität','Viskosität','Nominal Viskosität',$,#2350);
+#2188= IFCTABLECOLUMN('Relative Dichte','Relative Dichte','Nominal Relative Dichte',$,#2355);
+#2189= IFCTABLECOLUMN('Maximaler Eingangsdruck','Maximaler Eingangsdruck','Nominal Maximaler Eingangsdruck',$,#2360);
+#2190= IFCRELASSOCIATESCONSTRAINT ('39pdaAHcz17fqXm2DkcYS5', $,$,$, (#1000), 'Values of Properties Serie, Brennstoffkennziffer, Bezeichnung Brennstoff, Unterer Heizwert, Viskosität, Relative Dichte, Maximaler Eingangdruck', #2180);
+
+
+
+/*references*/
+
+
+#2290= IFCREFERENCE('IfcBuildingElementProxyType','HasPropertySets','Auswahlmerkmale',$,#2291);
+#2291= IFCREFERENCE('IfcPropertySet','HasProperties','Typ des Brenners',$,#2292);
+#2292= IFCREFERENCE('IfcPropertySingleValue','NominalValue',$,$,$);
+
+
+#2320= IFCREFERENCE('IfcBuildingElementProxyType','HasPropertySets','Auswahlmerkmale',$,#2321);
+#2321= IFCREFERENCE('IfcPropertySet','HasProperties','Serie',$,#2322);
+#2322= IFCREFERENCE('IfcPropertySingleValue','NominalValue',$,$,$);
+
+
+#2330= IFCREFERENCE('IfcBuildingElementProxyType','HasPropertySets','Brennstoff',$,#2331);
+#2331= IFCREFERENCE('IfcPropertySet','HasProperties','Brennstoffkennziffer',$,#2332);
+#2332= IFCREFERENCE('IfcPropertySingleValue','NominalValue',$,$,$);
+
+
+#2335= IFCREFERENCE('IfcBuildingElementProxyType','HasPropertySets','Brennstoff',$,#2336);
+#2336= IFCREFERENCE('IfcPropertySet','HasProperties','Bezeichnung Brennstoff',$,#2337);
+#2337= IFCREFERENCE('IfcPropertySingleValue','NominalValue',$,$,$);
+
+#2340= IFCREFERENCE('IfcBuildingElementProxyType','HasPropertySets','Brennstoff',$,#2341);
+#2341= IFCREFERENCE('IfcPropertySet','HasProperties','Unterer Heizwert',$,#2342);
+#2342= IFCREFERENCE('IfcPropertySingleValue','NominalValue',$,$,$);
+
+#2350= IFCREFERENCE('IfcBuildingElementProxyType','HasPropertySets','Brennstoff',$,#2351);
+#2351= IFCREFERENCE('IfcPropertySet','HasProperties','Viskosität',$,#2352);
+#2352= IFCREFERENCE('IfcPropertySingleValue','NominalValue',$,$,$);
+
+#2355= IFCREFERENCE('IfcBuildingElementProxyType','HasPropertySets','Brennstoff',$,#2356);
+#2356= IFCREFERENCE('IfcPropertySet','HasProperties','relative Dichte',$,#2357);
+#2357= IFCREFERENCE('IfcPropertySingleValue','NominalValue',$,$,$);
+
+#2360= IFCREFERENCE('IfcBuildingElementProxyType','HasPropertySets','Brennstoff',$,#2361);
+#2361= IFCREFERENCE('IfcPropertySet','HasProperties','max. Eingangsdruck',$,#2362);
+#2362= IFCREFERENCE('IfcPropertySingleValue','NominalValue',$,$,$);
+
+
+
+
+
+#2360= IFCREFERENCE('IfcBuildingElementProxyType','HasPropertySets','staticPropertySet_Silencer',$,#2361);
+#2361= IFCREFERENCE('IfcPropertySet','HasProperties','minWidth',$,#2362);
+#2362= IFCREFERENCE('IfcPropertySingleValue','NominalValue',$,$,$);
+
+
+
+
+
+
+
+
+
+
+
+/* table rows for Typ des Brenners (aber text direkt eingesetzt und keine id..hier noch verweis zu DD? (predef. values)) */
+
+#10000= IFCTABLEROW((IFCTEXT('Ölbrenner')),$);
+#10001= IFCTABLEROW((IFTEXT('Gasbrenner')),$);
+#10002= IFCTABLEROW((IFCTEXT('Kombibrenner')),$);
+
+#30000=IFCEXTERNALREFERENCERELATIONSHIP('ExternalPreDefinedValueRelationship',$, #521,(#1000));
+#30001=IFCEXTERNALREFERENCERELATIONSHIP('ExternalPreDefinedValueRelationship',$, #522,(#10001));
+#30001=IFCEXTERNALREFERENCERELATIONSHIP('ExternalPreDefinedValueRelationship',$, #523,(#10002));
+
+
+
+/* table rows for Typ des Brenners and Serie */
+
+#25030= IFCTABLEROW((IFCTEXT('Ölbrenner'),IFCTEXT('WL')),$);
+#25031= IFCTABLEROW((IFCTEXT('Gasbrenner'),IFCTEXT('WG')),$);
+#25032= IFCTABLEROW((IFCTEXT('Kombibrenner'),IFCTEXT('WGL')),$);
+
+#25050= IFCTABLEROW((IFCTEXT('WL'),IFCREAL(9),IFCTEXT('Heizöl EL'),IFCREAL(11.85),IFCREAL(6),$,$),$);
+#25051= IFCTABLEROW((IFCTEXT('WG'),IFCREAL(3),IFCTEXT('Erdgas E'),IFCREAL(10.35),$,IFCREAL(60.6),IFCREAL(300)),$);
+#25052= IFCTABLEROW((IFCTEXT('WG'),IFCREAL(3),IFCTEXT('Erdgas LL'),IFCREAL(8.83),$,IFCREAL(64.1),IFCREAL(300)),$);
+#25053= IFCTABLEROW((IFCTEXT('WG'),IFCREAL(3),IFCTEXT('Flüssiggas (Propan)'),IFCREAL(25.89),$,IFCREAL(155.5),IFCREAL(300)),$);
+#25054= IFCTABLEROW((IFCTEXT('WG'),IFCREAL(3),IFCTEXT('Flüssiggas (Butan)'),IFCREAL(25.89),$,IFCREAL(155.5),IFCREAL(300)),$);
+
+
+
+
+
+ENDSEC;
+END-ISO-10303-21;
+
+
+	  
+	  
